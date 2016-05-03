@@ -1,5 +1,9 @@
 const barrels: string[] = [
   'app',
+  'app/+hero',
+  'app/+user',
+  'app/main-nav',
+  'app/+index',
   /** @cli-barrel */
 ];
 
@@ -15,9 +19,14 @@ function createPackageConfig(barrels: string[]): any {
 }
 
 
-// Add your custom SystemJS configuration here.
+
 export const config: any = {
   packages: Object.assign({
     // Add your custom SystemJS packages here.
-  }, createPackageConfig(barrels))
+  }, createPackageConfig(barrels)),
+  map: {
+    'moment': 'vendor/moment/moment.js',
+    // 'bootstrap':'vendor/bootstrap-sass/assets/javascripts/bootstrap.js',
+    // '$': 'vendor/jquery/dist/jquery.js'
+  }
 };
